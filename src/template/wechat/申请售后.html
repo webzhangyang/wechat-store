@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/icon-base64.css"/>
+</head>
+<body>
+<header class="nav fixed">
+    <!--点击go-back元素会启动window.history.back()-->
+    <div class="nav-l go-back">
+        <i class="icon-base i-back"></i>
+    </div>
+    <div class="nav-m">申请售后</div>
+    <div class="nav-r"></div>
+</header>
+<section  class="mobile-container default-f-s stopMove nav-top-p">
+    <div class="content-detail">
+        <p class="a-normal-line pop-up show-mask">
+            <span>售后原因</span>
+            <i class="icon-base i-rArrows"></i>
+        </p>
+        <div class="a-sale-item">
+            <p class="item-title">售后类型</p>
+            <div class="item-detail">
+                <p class="a-item">
+                    <label>
+                        <input type="radio" name="afterSaleType" class="hide checkbox-btn"/>
+                        <i class="checkbox-show"></i>
+                        <span>申请退货退款</span>
+                     </label>
+                </p>
+               <p class="a-item">
+                   <label>
+                       <input type="radio" name="afterSaleType" class="hide checkbox-btn"/>
+                       <i class="checkbox-show"></i>
+                       <span>申请换货</span>
+                   </label>
+               </p>
+
+            </div>
+        </div>
+        <div class="a-sale-item">
+            <p class="item-title">退款路径</p>
+            <div class="item-detail">
+                <label>
+                    <input type="checkbox" class="hide checkbox-btn"/>
+                    <i class="checkbox-show"></i>
+                    <span>原路返还（返回到微信钱包）</span>
+                </label>
+            </div>
+        </div>
+        <div class="a-sale-item">
+            <p class="item-title">售后描述</p>
+            <div class="item-detail">
+                <div class="size-info">
+                    <span class="info-length">0</span>
+                    <span>/150</span>
+                </div>
+                <textarea class="reset" name="" maxlength="150"  id="" placeholder="请输入不超过150字的售后描述"></textarea>
+            </div>
+        </div>
+        <div class="a-sale-item">
+            <p class="item-title">上传证明：上传图片更容易通过申请</p>
+            <div class="item-detail permit-img">
+                <!--图片的表单name暂时都是images FormData中key是唯一的，但是同一个value可以有很多-->
+                <div class="img-item select-img"></div>
+            </div>
+        </div>
+
+        <div class="static-part">
+            <a href="#" class="gray-btn submit">提交申请</a>
+            <!--未选中任何选项时，元素没有active这个class,有了实际值后，添加上active，表示可以点击提交了-->
+            <a href="#" class="gray-btn submit active">提交申请</a>
+        </div>
+    </div>
+</section>
+<div class="mask stopMove hide">
+    <div class="mask-shade close-mask"></div>
+    <div class="big-img-show close-mask hide mask-item">
+        <img src="images/test1.jpg" alt=""/>
+    </div>
+    <div class="after-reason hide mask-item">
+        <a href="#" class="close-mask some-close">&times;</a>
+        <div class="a-r-title">售后原因</div>
+        <div>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>不想买了</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>质量问题</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>长时间不发货</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>发错货了</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>物流太慢</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>地址错误或者商品买错了</span>
+                <i class="checkbox-show"></i>
+            </label>
+            <label class="label-flex">
+                <input type="checkbox" class="checkbox-btn"/>
+                <span>验货时货物损坏</span>
+                <i class="checkbox-show"></i>
+            </label>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/pinterest.js"></script>
+<script src="js/interaction.js"></script>
+<script src="js/img-preview.js"></script>
+
+<!--<script src="js/areaData.js"></script>-->
+<!--<script src="js/slider.js"></script>-->
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+.flex{
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-inline{
+  display: -webkit-inline-flex; /* Safari */
+  display: inline-flex;
+}
+//flex内容分成多个列,自动填充内容区
+.flex-full{
+  .flex;
+  .item{
+    .f-item;
+  }
+}
+.f-item{
+  //flex-grow: 1;//flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+  //flex-shrink:1;//flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+  //flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，
+  //计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+  flex:1 1 auto; //flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。
+}
+.flex-wh{
+  flex:1 0 auto;//允许变大不允许变小
+}
+.flex-original{//保持设定的宽高，不变化了
+  flex:0 0 auto;
+}
+.flex-allow{//允许缩小，不让放大
+  flex:0 1 auto;
+}
+
+.some-help{
+  /*
+flex-direction属性决定主轴的方向（即项目的排列方向）。
+.box {
+  flex-direction: row | row-reverse | column | column-reverse;
+}
+
+flex-wrap属性定义，如果一条轴线排不下，如何换行。
+
+.box{
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+
+
+justify-content属性定义了项目在主轴上的对齐方式。
+
+.box {
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+
+*/
+
+  /*align-items属性定义项目在交叉轴上如何对齐。
+  .box {
+    align-items: flex-start | flex-end | center | baseline | stretch;
+  }*/
+
+  //align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+  //.box {
+  //  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+  //}
+
+  //align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+  //
+  //.item {
+  //  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+  //}
+
+
+  //order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+  //
+  //.item {
+  //  order: <integer>;
+  //}
+
+}
+
+//flex
+.flex-ver{//纵向布局
+  flex-direction: column;
+}
+.flex-j(@j:center){//主轴对齐
+  // justify-content: flex-start | flex-end | center | space-between | space-around;
+  justify-content:@j;
+}
+.flex-between{//主轴两端对齐
+  .flex;
+  .flex-j(space-between);
+}
+.flex-right{//右端对齐
+  .flex;
+  .flex-j(flex-end);
+  .flex-a();
+}
+.flex-j-c{//主轴对齐 -  居中
+  .flex-j();
+}
+.flex-a(@a:center){//交叉轴对齐
+  //align-items: flex-start | flex-end | center | baseline | stretch;
+  align-items:@a;
+}
+.flex-a-c{//交叉轴对齐 - 居中
+  .flex-a();
+}
+//换行显示
+.flex-wrap{// flex-wrap: nowrap | wrap | wrap-reverse;
+  flex-wrap:wrap;
+}
+.flex-center{
+  .flex;
+  .flex-a();
+  .flex-j();
+}

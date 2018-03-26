@@ -1,0 +1,344 @@
+@import "var";//变量
+@import "flex";//弹性布局
+
+html{
+  .f-s(20px);
+  /*移动端去除高亮显示*/
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  .w();
+  height:100%;
+}
+body{
+  .w();
+  .bg-co(@ef);
+  height:100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+body,p,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,a{
+  .m();
+  .p();
+  .style-none;
+}
+a{
+  .co();
+}
+img{
+  .style-none;
+  .v-a();
+}
+//正常的一行
+.normal-line{
+  .h();
+}
+
+//移动端最大宽度限制
+@limit:768px;
+.wid-limit{
+  max-width:@limit;
+}
+.limit-width{
+  .w(@limit);
+}
+//H5滚动回弹
+.scrolling{
+  -webkit-overflow-scrolling : touch;
+}
+//文字居中
+.text-center{
+  text-align: center;
+}
+//多行文本溢出省略号
+.more-ellipsis{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;     //   这上下 两个属性必须一起使用才能成功显示省略号   orient朝向 vertical垂直的  horizontal水平的
+  -webkit-line-clamp: 2;//表示显示的行数
+  overflow: hidden;
+}
+//浮动，注意不可以和flex一起使用
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.clear{
+  &:before{
+    content: '';
+    display: table;
+  }
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/*强制换行*/
+.break_word{
+  word-wrap:break-word;
+  word-break:break-all;
+}
+/*禁止换行*/
+.keep_all{
+  word-break:keep-all;
+  white-space:nowrap;
+}
+/*超出省略号，仅限单行，并且需要设定一个宽度*/
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
+//单行文本溢处省略号
+.one-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/*段落两端对齐 就是文字填满两端，中间部分的各种间距可能不一*/ //情况简介case_intro  文本整理版面txt_justify
+.case_intro , .txt_justify{
+  text-align:justify;
+}
+
+/*禁止FF等浏览器给textarea增加可拖拽大小的设置*/
+.not-resize { resize: none; }
+
+/*隐藏*/
+.hide{ display:none;}
+
+
+/*移动端总容器宽度*/
+.mobile-container{
+   margin:0 auto;
+   height: 100%;
+   .box;
+  .w();
+  .bg-co(@ef);
+  overflow-y: auto;
+  &>div{
+    .clear;
+  }
+}
+
+//隐藏
+.hide{
+  .dis(none);
+}
+
+//实际区域比看到的大
+.big-bulk{
+  .p(0.7rem);
+}
+
+/*解耦的布局*/
+//瀑布流waterfall
+.waterfall{
+  .p(0.5rem 0.3rem 0 0.3rem);
+  .flex;
+  .water-col{
+    .w(calc(~'50% - 0.5rem'));
+    .m(0 0.2rem);
+    .f-item;
+    .water-detail{
+      .dis();
+      .m(0 0 0.5rem 0);
+      .p(0.25rem);
+      .bg-co();
+      .detail-img{
+        img{
+          .w();
+        }
+      }
+    }
+  }
+}
+//遮罩通用样式
+.mask{
+  .posi(@fix);
+  .posi-all;
+  .z-index(1000);
+  .overXY();
+}
+.mask-shade{
+  .posi(@fix);
+  .posi-all;
+  .bg-co(rgba(0,0,0,0.5));
+  .z-index(1500);
+}
+.mask-content{
+  .posi(@fix);
+  .z-index(2000);
+}
+.myMask{
+  .mask;
+  .alert-txt.red{
+    .co(#f6383a);
+  }
+}
+//左图，右文字
+.img-text{
+  .flex;
+  .flex-a();
+  .img-l{
+    .flex-original;//固定住大小
+  }
+  .text-r{
+    .f-item;//右侧自动适应
+  }
+}
+.normal-size{
+  .f-s(0.6rem);
+}
+.big-size{
+  .f-s(0.7rem);
+}
+//左右两边内边距加最小行高40
+.a-line{
+  .a-pad;
+  .a-height;
+  .flex;
+  .flex-a();
+}
+.a-pad{
+  .p(0 0.8rem);
+}
+.a-height{
+  height: 2rem;
+}
+.trans-y{
+  transform: translateY(-100%);
+  margin-top:-100%;
+}
+.relative{
+  .posi();
+}
+.end-flex{
+  .flex;
+  .flex-a(flex-end);
+}
+.base-flex{
+  .flex;
+  .flex-a(baseline);
+}
+.small-box-btn{
+  .bor-all(1px  solid #b5b5b5);
+  .co(#2b2b2b);
+  .h(1rem);
+  .radio(0.25rem);
+  .bg-co();
+  .normal-size;
+  .p(0 0.6rem);
+  .flex;
+  .flex-a();
+  .m(0 0.25rem 0 0);
+  &.active{
+    .bg-co(#c9291d);
+    .co(#fff);
+  }
+}
+.big-padding{
+  padding-bottom:3.4rem;
+}
+.larger-padding{
+  padding-bottom:5.55rem;
+}
+.white{
+  .bg-co();
+}
+.a-gray-line{
+  border-bottom:1px solid #e0e0e0;
+}
+.gray-line(@b:#e5e5e5){
+  border-bottom:1px solid @b;
+}
+.image-text{
+  .flex;
+  .f-s(0.6rem);
+  .img-part{
+    .w(4.5rem);
+    .m(0 0.6rem 0 0);
+    img{
+      .w();
+    }
+  }
+  .txt-part{
+    .w(calc(~'100% - 5.1rem'));
+    .more-ellipsis{
+      .co(#141414);
+      .m(0.5rem 0 0.45rem 0);
+
+    }
+    .one-ellipsis{
+      .co(#8d8d8d);
+      .w(90%);
+    }
+    .count{
+      .co(#777);
+      .flex-right;
+    }
+  }
+}
+.normal-MB{
+  margin-bottom:0.25rem;
+}
+.nav-top-p{
+  padding-top:2.2rem;
+}
+.a-line-btn{
+  .h(2rem);
+  .flex-right;
+  .btn{
+    .h(1.2rem);
+    .p(0 0.6rem);
+    .flex-center;
+    .radio(0.15rem);
+    .co(#636363);
+    .bor-all(1px solid #dfdfdf);
+    .m(0 0 0 0.5rem);
+    &.red{
+      .co(#fff);
+      .bg-co(#df3030);
+      .bor-all(1px solid #df3030);
+    }
+    &.gray{
+      .co(#fff);
+      .bg-co(#aaa);
+      .bor-all(1px solid #aaa);
+    }
+  }
+}
+.a-row-btn{
+  .h(2rem);
+  .flex-right;
+  .btn{
+    .h(1.2rem);
+    .p(0 0.6rem);
+    .f-s(0.6rem);
+    .co(#010101);
+    .bg-co(#EFEFEF);
+    .line-h(1.2rem);
+  }
+}
+//多行文本框
+textarea{
+  resize : none;
+}
+.big-MB{
+  margin-bottom:0.5rem;
+}
+.img-vessel{
+  img{
+    .w();
+  }
+}
+label{
+  .flex;
+  .flex-a();
+}

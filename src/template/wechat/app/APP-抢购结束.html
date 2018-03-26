@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/new.css"/>
+    <style>
+        @media screen and (max-width:340px){
+            .a-line-show{ font-size:10px;}
+            .a-btn-black{
+                font-size: 12px;
+                padding:2px 6px;
+            }
+        }
+    </style>
+
+</head>
+<body >
+<div class="showMask" data-mask="discounts">
+    优惠
+</div>
+
+<div class="alertMask" mask="discounts" style="position:fixed;top:0;left:0;bottom:0;right:0;z-index:1000;display: none;">
+    <div class="hideLoginMask allStopMove hideMask" data-mask="discounts" style="position:absolute;top:0;left:0;bottom:0;right:0;background-color: rgba(0,0,0,0.5);"></div>
+    <div class="tick" style="position:fixed;display:none;z-index:100;text-align: center;background-color:rgba(255,255,255,0.5);left:50%;top:40%;transform: translate(-50%,-50%);width:70px;height:70px;border-radius: 10px;">
+        <p ><img class="tick-img" src="images/success.png" alt="" style="width:40px;"/></p>
+        <p class="tick-txt" style="font-size: 14px;">已领取</p>
+    </div>
+    <div class="loginMaskContent" style="box-sizing:border-box;padding:0 14px;border-radius:5px;background-color: #fff;font-size: 14px;position: absolute;width:100%;left:0;right:0;bottom:0;top:50%;transition: all .3s ease-in-out;transform: translateY(30%);">
+        <p class="flex allStopMove" style="height:60px;border-bottom:1px solid #F4F4F4;">
+            <span class="title flex-center">领取优惠</span>
+            <a href="#" class="some-btn flex-center hideMask" data-mask="discounts">
+                <img src="images/close.jpg" alt=""/>
+            </a>
+        </p>
+        <div class="scroll-con stopMove" style="height:calc(100% - 61px)"></div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+
+
+
+    var someData=[
+        {Price:100,OrderUseLimit:599.00,StatTime:"2017-11-14 15:22",ClosingTime:"2017-11-14 16:00"},
+        {Price:500,OrderUseLimit:0.00,StatTime:"2017-11-14 15:22",ClosingTime:"2017-11-14 16:00"},
+        {Price:300,OrderUseLimit:600.00,StatTime:"2017-11-14 15:22",ClosingTime:"2017-11-14 16:00"}
+    ];
+
+    //领取成功或者失败
+    function getTicket(state){
+        var img,txt;
+        if(state=="error"){
+            img="images/error.png";
+            txt="领取失败"
+        }else{
+            img="images/success.png";
+            txt="已领取"
+        }
+        $(".tick").fadeIn(300).find('.tick-img').attr('src',img).end().find('.tick-txt').text(txt);
+        //设定定时器，3S后自动隐藏
+        setTimeout(function(){
+            $(".tick").fadeOut(300);
+        },1700);
+    }
+
+    //显示领取优惠券的页面内容
+    function alertMask(parent,data){
+        var html="";
+        for(var i=0;i<data.length;i++){
+            var limit=data[i].OrderUseLimit;
+            limit=parseInt(limit)==0?"无限制":`订单满${limit}元可用`;
+            html+=`<div class="margin">
+                <div>
+                    <p class="semicircle"></p>
+                    <div class="flex a-height">
+                        <span class="white">${data[i].Price}</span>
+                        <span class="juan flex-center">券</span>
+                    </div>
+                </div>
+                <div class="flex" style="height:50px;padding:0 10px;">
+                    <div class="a-line-show">
+                        <p>
+                            <img src="images/small02.jpg" alt=""/>
+                            <span>${limit}</span>
+                        </p>
+                        <p>
+                            <img src="images/small03.jpg" alt=""/>
+                            <span>${data[i].StatTime}</span>&nbsp;-&nbsp;<span>${data[i].ClosingTime}</span>
+                        </p>
+                    </div>
+                    <a href="#" class="a-btn-black">领取</a>
+                </div>
+            </div>`
+        }
+        $(parent).fadeIn(300,function(){
+            $(this);
+        }).find(".scroll-con").html(html).end().find('.loginMaskContent').css({"transform": 'translateY(0)'});
+    }
+    function closeMask(mask){
+        $(mask).fadeOut(300).find('.loginMaskContent').css({"transform": 'translateY(30%)'});
+    }
+    $(function(){
+        moveStop('.stopMove');//上下滑动阻止
+        $('.allStopMove').on("touchmove",function(e){
+            e.preventDefault();
+        });
+
+        //点击出现领取优惠券页面弹窗
+        $('.showMask').on("click",function(e){
+            var type=$(this).attr('data-mask');
+            var mask=$('[mask='+type+']');
+            alertMask(mask,someData);
+        });
+        $(".hideMask").on("click touchmove",function(e){
+            e.preventDefault();
+            var type=$(this).attr('data-mask');
+            var mask=$('[mask='+type+']');
+            closeMask(mask);
+        });
+
+        //领取按钮
+        $('.scroll-con').on("click",".a-btn-black",function(e){
+            e.preventDefault();
+            //发送请求，失败
+            getTicket();
+            //请求成功 getTicket();
+
+        })
+
+    });
+    //触摸到顶部或者到了底部，就不然它在移动了
+    function moveStop(target,one){
+        var m_start=0,m_move=0;
+        $(target).on(
+                {
+                    "touchstart":function(event){
+                        var touch = event.originalEvent.changedTouches[0];
+                        //设定初始触摸值
+                        m_start= touch["pageY"];
+                    },
+                    "touchmove":function(event){
+                        var touch = event.originalEvent.changedTouches[0];
+                        m_move=touch["pageY"]-m_start;//负数向上，正数向下
+                        var bool=targetScroll(this,m_move,one);
+                        if(bool){
+                            event.preventDefault();
+                        }
+                    }
+                }
+        );
+    }
+    //判断滚动到顶部是否还继续往上移动
+    function targetScroll(tar,dir,one){
+        tar=tar || window;
+        var s=$(tar).scrollTop();
+        var child=$(tar).children();
+        var w_h=0;
+        if(one){
+            w_h=$(tar).children('.active').height();
+        }else{
+            child.each(function(){
+                w_h+=$(this).height();
+            });
+        }
+        var d_h=$(tar).height();
+        if(one){
+            if(dir>0 && s<=0){
+                return true;
+            }
+        }else{
+            if((dir>0 && s<=0)
+                    || (dir<0 && parseInt(s+d_h)>=parseInt(w_h))
+            ){
+                return true;
+            }
+        }
+    }
+</script>
+</body>
+</html>

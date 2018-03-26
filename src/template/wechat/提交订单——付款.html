@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/icon-base64.css"/>
+</head>
+<body>
+<header class="nav fixed">
+    <!--点击go-back元素会启动window.history.back()-->
+    <div class="nav-l go-back">
+        <i class="icon-base i-back"></i>
+    </div>
+    <div class="nav-m">支付订单</div>
+    <div class="nav-r"></div>
+</header>
+<section  class="mobile-container default-f-s stopMove big-padding nav-top-p">
+    <div>
+        <div class="pay-info">
+            <p>订单编号：12345678912</p>
+            <p>订单总价：￥554.00</p>
+        </div>
+        <div class="pay-money">
+            应支付金额：<span class="red">￥</span><span class="red big bold">554.00</span>
+        </div>
+        <div class="pay-way">
+            <p class="black">支付方式</p>
+            <label class="flex flex-a-c flex-full">
+                <i class="icon-base i-wechat" ></i>
+                <input type="checkbox" class="hide red-check" id="someInput" checked/>
+                <span class="item">微信支付</span>
+                <i class="icon-choice i-red-check"></i>
+            </label>
+        </div>
+        <div class="static-part" style="margin-top:1.5rem;">
+            <a href="#" class="gray-btn active">确认支付</a>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/interaction.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+@import "common";//通用
+@import "var";//变量
+@import "flex";//弹性布局
+
+//轮播样式
+.carousel{
+  .posi();
+  .w();
+  .overXY();
+  min-height: 40px;
+  .bigBanner{
+    .flex;
+    .m();
+    li{
+      .flex-wh;
+      a{
+        .dis();
+      }
+      img{
+        .w();
+      }
+    }
+  }
+  .smallList{
+    .posi(@ab);
+    .z-index(10);
+    bottom:10px;
+    right:10px;
+    .flex;
+    li{
+      .flex-wh;
+      .w(10px);
+      .h(10px);
+      .bg-co(#dedede);
+      .radio(50%);
+      .p(5px);
+      background-clip:content-box;
+      &.active{
+        .bg-co(@jd-red);
+      }
+    }
+  }
+}

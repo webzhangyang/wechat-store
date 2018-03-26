@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/icon-base64.css"/>
+</head>
+<body>
+<header class="nav fixed">
+    <!--点击go-back元素会启动window.history.go(-1)-->
+    <div class="nav-l go-back">
+        <i class="icon-base i-back"></i>
+    </div>
+    <div class="nav-m">banner</div>
+    <div class="nav-r"></div>
+</header>
+<section  class="mobile-container default-f-s stopMove nav-top-p bottom-padding">
+    <div class="clear">
+        <div class="product">
+        <div class="rec-detail waterfall hide" data-pinterest="product"></div>
+    </div>
+    </div>
+</section>
+<div class="aside-classify mask hide">
+    <div class="mask-shade close-mask"></div>
+    <div class="mask-content classify-content moveParent ovfHiden">
+        <div class="moveChild clear">
+            <p class="c-content-title">
+                <i class="icon-base i-black-classify"></i>
+                <span class="classify-title">商品分类</span>
+            </p>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+            <a class="c-content-list" href="#">
+                <span>轮毂改装</span>
+            </a>
+        </div>
+    </div>
+    <div class="classify-icon close-mask">
+        <i class="icon-base i-double-arrow"></i>
+    </div>
+</div>
+<footer class="bottom-container">
+    <div class="bottom-nav" data-open="nav">
+        <!--注意，不仅仅a标记需要增加active，.icon-base元素也需要增加active，不然不会有图标的变化-->
+        <a class="item" href="#">
+            <p class="icon-base i-home b-nav-m"></p>
+            <p class="b-nav-m">首页</p>
+        </a>
+        <a class="item show-mask">
+            <p class="icon-base i-classify b-nav-m"></p>
+            <p class="b-nav-m">分类</p>
+        </a>
+        <a class="item active" href="#">
+            <p class="icon-base i-car b-nav-m relative">
+                <span class="show-txt-number hide">+1</span>
+                <span class="show-content" data-number="2">2</span>
+            </p>
+            <p class="b-nav-m">购物车</p>
+        </a>
+        <a class="item" href="#">
+            <p class="icon-base i-my b-nav-m"></p>
+            <p class="b-nav-m">我的</p>
+        </a>
+    </div>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/pinterest.js"></script>
+<script src="js/interaction.js"></script>
+<script>
+    $(function(){
+        Pinter.init($('[data-pinterest="product"]'),PinterData,2);
+    });
+
+</script>
+</body>
+</html>

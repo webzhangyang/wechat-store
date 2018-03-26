@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/icon-base64.css"/>
+</head>
+<body>
+<header class="nav fixed">
+    <!--点击go-back元素会启动window.history.back()-->
+    <div class="nav-l go-back">
+        <i class="icon-base i-back"></i>
+    </div>
+    <div class="nav-m">订单详情</div>
+    <div class="nav-r show-mask order-state">取消订单</div>
+</header>
+<section  class="mobile-container default-f-s stopMove big-padding nav-top-p">
+    <div>
+        <div class="big-info normal-MB order-state">
+           等待卖家付款……
+        </div>
+        <div class="contact-way normal-MB">
+            <div class="blue-red"></div>
+            <div class="contact-detail">
+                <i class="icon-base i-addr flex-original"></i>
+                <div>
+                    <div class="flex">
+                        <p class="l-aside">联系人：</p>
+                        <p>张三</p>
+                    </div>
+                    <div class="flex">
+                        <p class="l-aside">联系电话：</p>
+                        <p>15088060745</p>
+                    </div>
+                    <div class="flex">
+                        <p class="l-aside">收货地址：</p>
+                        <p>江苏省 南京市 高新科技高新科技高新科技高新科技高新科技高新科技高新科技</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="a-title normal-MB">商品清单</div>
+        <div class="goods-list">
+            <div class="image-text normal-MB">
+                <p class="img-part"><img src="images/test1.jpg" alt="图片暂缺"/></p>
+                <div class="txt-part">
+                    <p class="more-ellipsis">Autobot Q车载手机支架汽车磁性粘贴吸盘式吸磁力出风口苹果粘贴吸盘式吸磁力出风口苹果</p>
+                    <p class="one-ellipsis">
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                    </p>
+                    <div class="flex-between">
+                       <p class="price">
+                           ￥78.00
+                       </p>
+                        <p class="count">
+                            x3
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-text normal-MB">
+                <p class="img-part"><img src="images/test1.jpg" alt="图片暂缺"/></p>
+                <div class="txt-part">
+                    <p class="more-ellipsis">Autobot Q车载手机支架汽车磁性粘贴吸盘式吸磁力出风口苹果粘贴吸盘式吸磁力出风口苹果</p>
+                    <p class="one-ellipsis">
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                        <span>材质：金属</span><span>颜色：深空色</span>
+                    </p>
+                    <div class="flex-between">
+                        <p class="price">
+                            ￥78.00
+                        </p>
+                        <p class="count">
+                            x3
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="goods-info">
+            <p>数量：5件</p>
+            <p><span class="black">应支付金额：</span><span class="red">￥1432.00</span></p>
+            <p>商品总金额金额：￥1432.00</p>
+            <p>运费：￥12.00</p>
+            <p>配送方式：快速配送</p>
+        </div>
+        <div class="goods-info order-info">
+            <p>下单时间：2017.12.02 12:01:02</p>
+            <p>订单编号：12345678912</p>
+        </div>
+    </div>
+</section>
+<footer class="bottom-container">
+    <a href="#" class="red block-btn go-pay">去付款</a>
+</footer>
+<div class="mask stopMove hide">
+    <div class="mask-shade close-mask"></div>
+    <div class="mask-content alert">
+        <p class="alert-txt">取消订单将不能恢复，确定要取消订单么？</p>
+        <div class="alert-btn">
+            <p class="close-mask alert-sure item order-close">确定</p>
+            <p class="close-mask alert-cancel item">取消</p>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/interaction.js"></script>
+<script>
+    //点击确认按钮时，显示订单关闭
+    $('.order-close').on('click',function(){
+        var info='交易关闭';
+        //移除再次点击交易关闭按钮会让遮罩层出现
+        $('.order-state').text(info).off('click');
+        $('.go-pay').addClass('grayStop');
+    });
+    //去付款按钮
+    $('.go-pay').on('click',function(e){
+        if($(this).hasClass('grayStop')){
+            //当去付款按钮变成灰色时，阻止默认跳转
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

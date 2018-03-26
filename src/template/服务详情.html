@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title></title>
+    <link rel="stylesheet" href="style/css/icon.css"/>
+    <link rel="stylesheet" href="style/css/main.css"/>
+
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="yy-container">
+    <div class="yy-header">
+        <div class="flex relative">
+            <p class="left-item" data-back="back">
+                <i class="iconfont icon-back"></i>
+            </p>
+            <div class="elm-bottom">服务详情</div>
+        </div>
+    </div>
+    <section class="yy-content padding">
+        <div class="carousel">
+            <ul id="list" class="bigBanner clear server">
+                <li>
+                    <a href="#"><img src="images/t3.png" alt=""/></a>
+                </li>
+            </ul>
+            <ul id="smallList" class="smallList clear server">
+                <li></li>
+                <li class="active"></li>
+            </ul>
+        </div>
+        <div class="server-detail fff">
+            <p class="title">汽车养护</p>
+            <div class="flex-default">
+                <p class="red ss-size">￥<b class="normal">150</b></p>
+                <p class="blue small">订金：￥10&nbsp;&nbsp;&nbsp;&nbsp;尾款：￥140</p>
+            </div>
+        </div>
+        <div class="a-flex-line fff cut-b">
+            <i class="iconfont icon-home"></i>
+            <p>到店支付</p>
+        </div>
+        <div class="a-flex-line fff">
+            <i class="iconfont icon-addr"></i>
+            <a href="#">益田路4088号香格里拉大酒店B3停车场停车场停车场停车场</a>
+            <a href="tel:123456" class="cut-l">
+                <i class="iconfont icon-tel blue"></i>
+            </a>
+        </div>
+        <div class="explain fff small">
+            <h3 class="title normal bold">费用支付说明：</h3>
+            <p class="title bold">无需定金：</p>
+            <p>直接预约服务时间，到店使用服务后在支付费用</p>
+            <p class="title bold">
+                定金+尾款：
+            </p>
+            <p>
+                需在线支付小额定金，到店使用服务后再支付尾款（部分项目需要提前准备材料等）
+            </p>
+        </div>
+    </section>
+    <div class="yy-footer yy-fixed">
+        <a href="#" class="detail reserve-btn reserve-btn--large reserve-btn--danger" data-mask="auto">立即预约</a>
+    </div>
+</div>
+<div class="yy-mask auto ">
+    <div class="m-content server">
+        <div class="server-mask-title">
+            <p class="title">预约时间</p>
+            <p class="info">仅显示一周(7天)内的预约时间</p>
+        </div>
+        <div style="overflow-x: auto;width: 100%;">
+            <div class="time-flex clear" data-time="week" data-key="date" data-val="2018年1月1日">
+                <div class="a_item active"><p>今天</p><p class="choice-date" data-date="2017年12月26日">12月26日</p></div>
+                <div class="a_item"><p>明天</p><p class="choice-date" data-date="2017年12月27日">12月27日</p></div>
+                <div class="a_item"><p>后天</p><p class="choice-date" data-date="2017年12月28日">12月28日</p></div>
+                <div class="a_item"><p>周五</p><p class="choice-date" data-date="2017年12月29日">12月29日</p></div>
+                <div class="a_item"><p>周六</p><p class="choice-date" data-date="2017年12月30日">12月30日</p></div>
+                <div class="a_item"><p>周六</p><p class="choice-date" data-date="2017年12月30日">12月30日</p></div>
+                <div class="a_item"><p>周六</p><p class="choice-date" data-date="2017年12月30日">12月30日</p></div>
+            </div>
+        </div>
+        <div class="flex-multi" data-time="hours" data-key="hours" data-val="">
+            <a href="#" class="reserve-btn  btn-tran item disabled">8:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">9:00</a>
+            <a href="#" class="reserve-btn  btn-tran item active">10:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">11:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">12:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">13:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">14:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">15:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">16:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">17:00</a>
+            <a href="#" class="reserve-btn  btn-tran item">18:00</a>
+        </div>
+        <!--此处写的是想要跳转的目标地址-->
+        <a href="/BookingService/提交订单.html" class="detail reserve-btn reserve-btn--large reserve-btn--danger"
+              data-jump="order">立即预约</a>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/carousel-1.js"></script>
+<script>
+    //启动轮播
+    if(!!img2){
+        carousel.init($('.carousel'),$('#list'),$('#smallList'),img2,null,null,242/375);
+    }
+
+    fillDate('[data-time="week"]');
+</script>
+</body>
+</html>
+
+

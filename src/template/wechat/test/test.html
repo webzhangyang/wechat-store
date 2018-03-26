@@ -1,0 +1,147 @@
+﻿<html lang="zh-CN">
+<head>
+    <title>限时抢购商品详情 - 车加商城</title>
+
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <style>
+        html,body{
+            height:100%;
+            -webkit-touch-callout: none;/*苹果的禁用长按事件*/
+            -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+            -moz-user-select: none;
+            padding:0;
+        }
+       .container{
+            height:100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling:touch;
+           padding-bottom:45px;
+        }
+        .showMoreImg p{
+            min-height: 1px;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body style="">
+    <div class="container containerStopMove">
+        <div id="iteminfo">
+            <div id="slides" style="overflow: hidden; display: block;">
+                <div class="slidesjs-container" style="overflow: hidden; position: relative; width: 414px; height: 414px;">
+                    <div class="slidesjs-control" style="position: relative; left: 0px; width: 414px; height: 414px;">
+                        <a href="javascript:;" class="slidesjs-slide" slidesjs-index="0" style="position: absolute; top: 0px; left: 0px; width: 100%; backface-visibility: hidden; z-index: 10;">
+                            <img src="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708175454399.jpg" style="border-width:0px;">
+                        </a><a href="javascript:;" class="slidesjs-slide" slidesjs-index="1" style="position: absolute; top: 0px; width: 100%; backface-visibility: hidden; z-index: 0; display: block; left: -414px;">
+                        <img src="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708173697695.jpg" style="border-width:0px;">
+                    </a>
+                    </div>
+                </div>
+                <ul class="slidesjs-pagination"><li class="slidesjs-pagination-item"><a href="#" data-slidesjs-item="0" class="active">1</a></li><li class="slidesjs-pagination-item"><a href="#" data-slidesjs-item="1">2</a></li></ul>
+            </div>
+            <div class="cd_xs">
+                <div class="cd_info">
+                    <div class="cd_price">
+                        <div>
+                            <p class="CdFont">抢购价</p>
+                            <p><span>¥</span><span class="CountPrice">136.80~1467.00</span></p>
+                            <p class="dels" id="delOldSalePrice">
+                                原价：¥152.00~1630.00
+                            </p>
+                        </div>
+                        <div class="timeParent">
+                            <span id="tuan_time" class="tuan_time">距活动结束时间：</span>
+                            <div class="cd_time">
+                                <!--<i class="icon_cdtime icon-icon_time" style="line-height:2rem"></i>-->
+                                <span>
+                                    <span id="t_d">1天</span>
+                                    <span id="t_h">6时</span>
+                                    <span id="t_m">9分</span>
+                                    <span id="t_s">51秒</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cd_title">
+                        美孚1号0W20全合成机油
+                    </div>
+                    <div class="freights clear">
+                        <p style="float:left;margin-right:10px;">运费:<label id="labProductFreight">￥10.00</label></p>
+                        <p class="maxCount" id="maxCount" style="display: none;">每人限购0件</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="cd_single mt_30" style="height: 2.2rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="divspecification">
+                选择规格
+                <i class="icon_angle_right"></i>
+            </div>
+            <div class="cd_single mt_30" id="ProducteValuate">
+                商品评价&nbsp;<i class="icon_badge">0</i>
+                <i class="icon_angle_right"></i>
+            </div>
+            <div class="mt_30 cd_pro_info showMoreImg">
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708171392930.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708171168615.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708176692700.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708179300335.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708173156665.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708174311642.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708174044882.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708171088232.jpg"></p>
+                <p><img data-url="http://autoround.img01.chejiamall.com/chejiashop-net/storage/master/product/images/201708177677401.jpg"></p>
+            </div>
+
+        </div>
+    </div>
+    <div class="cd_btn btn_1 allStopMove">
+        <a id="btnCustomerServices" style="width:14.6%;background-color:rgb(255,255,255);line-height:0.8rem">
+            <img src="images/qg_customerserver.png" style="width:40%;height:40%; vertical-align:initial;margin-top:5px">
+            <p style="color:black;font-size:10px"> 客服</p>
+        </a>
+        <a id="btnShoppingCart" style="width:14.6%;background-color:rgb(255,255,255) ;line-height:0.8rem;position:relative">
+            <img src="images/qg_shopcar.png" style="width:40%;height:40%;vertical-align:initial;margin-top:5px">
+            <p style="color:black;font-size:10px">购物车</p>
+            <span class="weui-badge" id="shoppingCartNumBubble" style="position: absolute; top: -2px; right: -3px; line-height: 1; display: none;">8</span>
+        </a>
+        <a id="btnCollection" style="width:14.6%;background-color:rgb(255,255,255);line-height:0.8rem ">
+            <img src="images/qg_collection.png" style="width:40%;height:40%;vertical-align:initial;margin-top:5px">
+            <p style="color:black;font-size:10px" class="showScroll">收藏</p>
+        </a>
+        <a id="btnAddShoppingCart"  style="width:28%;background-color:rgb(41,41,41)">加入购物车</a>
+        <a id="buyButtonNew" class="soonAction showLoginMask" >立即抢购</a>
+    </div>
+
+    <div class="loginMask hidden" style="position:fixed;top:0;left:0;bottom:0;right:0;z-index:1000;">
+    <div class="allStopMove" style="position:absolute;top:0;left:0;bottom:0;right:0;background-color: rgba(0,0,0,0.5);"></div>
+    <div style="background-color: #fff;font-size: 14px;position: absolute;width:280px;left:50%;top:50%;
+    transform: translate(-50%,-50%);">
+    <p style="font-size: 16px;color:#393838;height:72px;display:flex;align-items:center;justify-content: center;
+    border-bottom:1px solid #dcdcdc;">请先登录</p>
+    <div style="display: flex;align-items:center;height:38px;line-height: 38px;">
+    <p class="closeLoginMask" style="color:#787878;width:50%;border-right:1px solid #dcdcdc;height:100%;text-align: center;">取消</p>
+    <a href="#" style="color:#8cc041;height:100%;text-align: center;flex:1 0 auto;">确定</a>
+    </div>
+    </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="stopMove.js"></script>
+    <script src="scrollLoad.js"></script>
+    <script>
+        $('.showLoginMask').on('click',function(){
+            $('.loginMask').fadeIn(300)
+        });
+        $('.closeLoginMask').on('click',function(){
+            $('.loginMask').fadeOut(300)
+        });
+    </script>
+</body>
+</html>

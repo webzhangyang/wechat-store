@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/icon-base64.css"/>
+</head>
+<body>
+<header class="nav fixed">
+    <!--点击go-back元素会启动window.history.back()-->
+    <div class="nav-l go-back" onclick="javascript:history.back();">
+        <i class="icon-base i-back"></i>
+    </div>
+    <div class="nav-m">收货地址</div>
+    <div class="nav-r"></div>
+</header>
+<section  class="mobile-container default-f-s stopMove nav-top-p white">
+    <div>
+        <div class="inside-container">
+           <p class="text-input">
+               <span>收货人：</span>
+               <input type="text"/>
+           </p>
+           <p class="text-input">
+               <span>联系方式：</span>
+               <input type="text"/>
+           </p>
+           <div class="text-input flex-between">
+               <span class="flex-original">收货地址：</span>
+               <p class="f-item">详细地址详细地址详细地址详址详细地址详细地址详详细地址详细地址详</p>
+               <a class="select-address flex-center">请选择<i class="icon-base i-rArrows"></i></a>
+           </div>
+           <p class="text-input">
+               <span>详细地址：</span>
+               <textarea placeholder="请输入详细地址"></textarea>
+           </p>
+           <p class="text-input check-part">
+               <label class="flex">
+                   <input type="checkbox" class="checkbox-btn" name="defaultAddr"/>
+                   <i class="checkbox-show"></i>
+                   <span>设为默认地址</span>
+               </label>
+           </p>
+       </div>
+        <div class="static-part" style="margin-top:1rem;">
+            <a href="#" class="gray-btn" style="font-size:0.8rem;">保存</a>
+            <a href="#" class="gray-btn active" style="font-size:0.8rem;">保存</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

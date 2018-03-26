@@ -1,0 +1,212 @@
+
+//默认的最小高度
+.d-h(@h:2rem){
+  min-height: @h;
+}
+//字体大小
+.f-s(@f:0.8rem){
+  font-size: @f;
+}
+.f-s-mobile{
+  .f-s(0.6rem)
+}
+//外边距
+.m(@m:0){
+  margin:@m;
+}
+//内边距
+.p(@m:0){
+  padding:@m;
+}
+//清除默认样式
+.style-none{
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  border:none;
+}
+//文本对齐
+.text(@t:center){
+  text-align: @t;
+}
+.text-c{
+  .text();
+}
+//高度
+.h(@h:100%){
+  height:@h;
+}
+//宽度
+.w(@w:100%){
+  width:@w;
+}
+//宽度和高度一致
+.w-h(@d:1rem){
+  .w(@d);
+  .h(@d);
+}
+//定位
+@r:relative;
+@ab:absolute;
+@fix:fixed;
+@sta:static;
+.posi(@p:@r){
+  position: @p;
+}
+.posi-detail(@l:0,@r:0,@t:0,@b:0){
+  left:@l;
+  right:@r;
+  top:@t;
+  bottom:@b;
+}
+.z-index(@z:0){
+  z-index: @z;
+}
+.posi-all(@p:0){
+  top:@p;
+  bottom:@p;
+  left:@p;
+  right:@p;
+}
+//字体颜色
+@de-color:#9f9f9f;
+@de-bg:#fff;
+@2a:#2a2a2a;
+@de-red:#df3326;
+.co(@c:@de-color){
+  color:@c;
+}
+//字体加粗
+.bold(@b:bold){
+  font-weight: @b;
+}
+.b{
+  .bold;
+}
+//背景颜色
+@ef:#efefef;
+@jd-red:#e4393c;
+.bg-co(@b:@de-bg){
+  background-color: @b;
+}
+//垂直排列
+.v-a(@v:middle){
+  vertical-align:@v;
+}
+//溢出处理
+@hide:hidden;
+.overX(@o:@hide){
+  overflow-x: @o;
+}
+.overY(@o:@hide){
+  overflow-y: @o;
+}
+.overXY(@o:@hide){
+  overflow: @o;
+}
+.ovfHiden{
+  .overXY();
+}
+.fixed{
+  position:fixed;
+}
+//元素类别
+@blo:block;
+@in-blo:inline-block;
+.dis(@d:@blo){
+  display:@d;
+}
+/*圆角*/
+@def-size:0.25rem;
+.radio(@r:@def-size){
+  border-radius:@r;
+}
+/*背景剪裁*让图片填充文本，那就是background-clip:text配合其
+私有属性-webkit-text-fill-color: transparent*/
+//content-box只显示内容区
+//padding-box显示内边距以及其以内的
+//border-box显示边框以及其以内的
+.bg-clip(@b:content-box){
+  background-clip:@b;
+}
+//box
+.box{
+  box-sizing: border-box;
+}
+//边框
+@c9:#c9c9c9;
+@f6:#f6f6f6;
+@f2:#f2f2f2;
+@ae:#aeaeae;
+@dc:#dcdcdc;
+@3f:#3f3f3f;
+@price:#c9291d;
+@8a:#8a8a8a;
+@93:#939393;
+@3a:#3a3a3a;
+@df:#dfdfdf;
+.red{
+  .co(#cc2418);
+}
+.gray{
+  .co(#8b8a8a);
+}
+.bor-top(@b:1px  solid @c9){
+  border-top:@b ;
+}
+.bor-all(@b:1px solid @dc){
+  border:@b;
+}
+//上下边框
+.bor-top-bottom(@b:1px solid #efefef){
+  border-top:@b;
+  border-bottom:@b;
+}
+.bor-t-b{
+  .bor-top-bottom(@b:1px solid #dfdfdf);
+}
+.bor-t{
+  .bor-top(@b:1px  solid @df);
+}
+//标题
+.title{
+  .f-s();
+  font-weight: bold;
+  .co(#06161e);
+}
+.line-h(@l:1rem){
+  line-height: @l;
+}
+//重定义placeholder颜色
+.place(@p:@ae,@f:0.6rem){
+  ::-webkit-input-placeholder{
+    .co(@p);
+    .f-s(@f);
+  }
+}
+//默认的字体尺寸
+.default-f-s{
+  .f-s(0.6rem);
+}
+//中划线
+.text-deco{
+  text-decoration: line-through;
+}
+//补充的外边距
+.extra-mar-bo{
+  margin-bottom: 0.5rem;
+}
+//C3过渡
+.c3-tran(@c:all ease-in .3s){
+  transition: @c;
+}
+.tran-move{
+  .c3-tran;
+}
+//C3位移
+.c3-translate(@x:-100%,@y:0){
+  transform:translate(@x,@y);
+}
+.big-size{
+  .f-s(0.7rem);
+}

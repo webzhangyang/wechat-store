@@ -1,0 +1,95 @@
+html{
+    -webkit-tap-highlight-color: transparent;
+}
+@media screen and (min-width:411px){
+
+}
+body{
+    padding:0;
+    margin:0;
+    -webkit-overflow-scrolling:touch;
+    -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+    -moz-user-select: none;
+}
+p{
+    margin:0;
+}
+a{
+    text-decoration: none;
+}
+.c3-animate{
+    transition: all 0.3s ease-out;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-center{
+    display: flex;
+   align-items: center;
+    justify-content: center;
+}
+.semicircle{
+    background: url("../images/small-semicircle.jpg") repeat left;
+    background-size: 7px 3px;
+    width:100%;
+    height:3px;
+}
+.margin{
+    margin:10px 0;
+}
+.title{
+    font-size: 16px;
+}
+.some-btn{
+    width: 30px;
+    height:30px;
+}
+.some-btn img{
+    width:20px;
+    height:20px;
+}
+.a-height{
+    height:75px;
+    background-image: linear-gradient(to bottom,#fb6703 0%,
+    #fa6000 25%, #fa5801 50%, #f25101 75%,#f24d0b 101%);
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding:0 8px 0 20px;
+    box-sizing: border-box;
+}
+.white{
+    color:#fff;
+    font-size: 30px;
+}
+.juan{
+    color:rgba(255,255,255,0.3);
+    font-size: 36px;
+    font-weight: 100;
+    height:60px;
+    width:60px;
+    border:3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+.scroll-con{
+    overflow-y: auto;
+}
+.a-line-show{
+    font-size: 12px;
+}
+.a-line-show img{
+    width:12px;
+    margin-right:5px;
+}
+.a-line-show>p{
+    display: flex;
+    align-items: center;
+    height:20px;
+}
+.a-btn-black{
+    border:1px solid #5F5F5F;
+    border-radius: 5px;
+    color:#5F5F5F;
+    padding:2px 12px;
+}

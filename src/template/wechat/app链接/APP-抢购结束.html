@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="css/appPage.css"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <style>
+        body{
+            background-color: #F1F0F5;
+        }
+        .c3-animate{
+            transition: all 0.3s ease-out;
+        }
+        .flex{
+            display: flex;
+        }
+        .flex-bt{
+            justify-content: space-between;
+        }
+        .semicircle{
+            background: url("") repeat-x left center;
+            background-size: 5px 5px;
+        }
+    </style>
+</head>
+<body >
+<div class="mobile-container  big-padding normal-size stopTop nav-top-p" style="background-color: transparent">
+    <div class="nav fixed" style="background-color: #f9f9f9;">
+        <!--点击go-back元素会启动window.history.back()-->
+        <div class="nav-l go-back">
+            <i class="icon-base i-back"></i>
+        </div>
+        <div class="nav-m">商品详情</div>
+        <div class="nav-r">
+            <i class="icon-base i-share"></i>
+        </div>
+    </div>
+    <div class="product-page1 ">
+        <div class="part-move">
+            <div class="carousel">
+                <ul id="product" class="bigBanner"><li class="active" data-index="0" style="width:100%;"><a href="#"><img src="images/test1.jpg" alt="图片暂缺"></a></li></ul>
+                <ul class="smallList"><li class="active"></li><li></li><li></li></ul>
+            </div>
+            <div class="panic-buying">
+                <p class="txt-info">抢购价</p>
+                <div>
+                    <p class="big-size">￥<span class="salient">24020</span>.00~<span class="salient">45654</span>.00</p>
+                    <p class="text-deco">原价￥30220.00~￥52000.00</p>
+                </div>
+                <div>
+                    <p class="for-trim">距活动结束还有</p>
+                    <p class="flex-center">
+                        <span class="time">00</span>天
+                        <span class="time">02</span>时
+                        <span class="time">46</span>分
+                        <span class="time">30</span>秒
+                    </p>
+                </div>
+            </div>
+            <div class="product-describe text-rush">
+                <p class="rush-title" style="font-size: 14px;">Autobot车载空气净化器 空气增压系统 多色可选多色可选多色可选多色可选多色可选多色可选多色可选</p>
+            </div>
+
+            <!--changStart-->
+            <div class="clear flex flex-a-c" style="height:34px;padding:0 16px;
+             border-top: 1px solid #EDEDF2;background-color: #fff;color:#393838;font-size:12px">
+                <p class="freight" style="width:40%;">销量：<span>28</span></p>
+                <p class="freight">运费：￥<span>0.00</span></p>
+            </div>
+            <div class="clear flex flex-a-c" style="margin: 5px 0;height:44px;padding:0 16px;background-color: #fff;">
+                <p style="border:1px solid #ff4645;padding:0 7px;height:16px;font-size: 12px;color:#ff4645;">限购</p>
+                <p style="margin-left:10px;color:#7d7d7f;font-size: 11px;">每人限购2件</p>
+            </div>
+            <!--changEnd-->
+
+            <div class="product-choice" style="margin:0;font-size: 14px;color:#373737;border-bottom:1px solid #ededf0;">
+                <p>选择规格</p>
+                <i class="icon-base i-rArrows small"></i>
+            </div>
+            <div class="product-choice" style="margin:0;font-size: 14px;color:#373737;border-bottom:1px solid #ededf0;">
+                <p class="relative bottom-btn" style="height:auto;">
+                    <span>商品评价</span>
+                    <span class="show-content" style="background-color: #F95940;width:16px;height:16px;right:-8px">1</span>
+                </p>
+                <i class="icon-base i-rArrows small"></i>
+            </div>
+            <div class="img-vessel" style="padding:16px;">
+                <img src="images/dt-search.jpg" alt=""/>
+                <img src="images/t2.png" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom-container">
+    <div class="bottom-btn rush-purchase" style="border-top:1px solid #eee;">
+        <a class="item" href="#">
+            <p class="icon-base i-customer"></p>
+            <p class="bottom-txt">客服</p>
+        </a>
+        <a class="item" href="#">
+            <p class="icon-base i-car-black relative">
+                <!--显示购物车的里商品数量-->
+                <!--<span class="show-content">2</span>-->
+            </p>
+            <p class="bottom-txt">购物车</p>
+        </a>
+        <a class="item" href="#">
+            <p class="icon-base i-collect"></p>
+            <p class="bottom-txt">收藏</p>
+        </a>
+        <p class="begin-start flex-full flex-a-c" style="height:100%;">
+            <a class="f-item flex-center" href="#" style="width:50%;height:100%;background-color: #292929;color:#fff;">加入购物车</a>
+            <a class="f-item flex-center showLoginMask" href="#" style="width:50%;height:100%;background-color: #97bd58;color:#fff;">立即抢购</a>
+        </p>
+
+    </div>
+</div>
+
+<div class="alertMask" style="position:fixed;top:0;left:0;bottom:0;right:0;z-index:1000;">
+    <div class="hideLoginMask" style="position:absolute;top:0;left:0;bottom:0;right:0;background-color: rgba(0,0,0,0.5);"></div>
+    <div class="loginMaskContent" style="box-sizing:border-box;padding:0 14px;border-radius:5px;background-color: #fff;font-size: 14px;position: absolute;width:100%;left:0;right:0;bottom:0;top:50%;transition: all .3s ease-out;transform: translateY(0%);">
+        <p class="flex flex-bt" style="padding:15px 0;border-bottom:1px solid #F4F4F4;">
+            <b>领取优惠</b>
+            <i>x</i>
+        </p>
+        <div>
+            <span>￥100.00</span>
+            <span>券</span>
+        </div>
+        <div>
+            <div>
+                <p>
+                    <i></i>
+                    <span>订单满599.00元可用</span>
+                </p>
+                <p>
+                    <i></i>
+                    <span>2017-11-14 15:22</span>
+                </p>
+            </div>
+            <a href="#">领取</a>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+    function showLoginMask(){
+        var mask=$('.loginMask');
+        if(mask.length==0){
+            var url='#';//点击登录按钮要跳转的页面地址
+            var html=  `<div class="loginMask" style="position:fixed;top:0;left:0;bottom:0;right:0;z-index:1000;display: none;">
+                            <div class="hideLoginMask" style="position:absolute;top:0;left:0;bottom:0;right:0;background-color: rgba(0,0,0,0.5);"></div>
+                                <div class="loginMaskContent" style="background-color: #fff;font-size: 14px;position: absolute;width:280px;left:50%;top:60%;
+                                transform: translate(-50%,-50%);">
+                                    <p style="font-size: 16px;color:#393838;height:72px;display:flex;align-items:center;justify-content: center;
+                                    border-bottom:1px solid #dcdcdc;">请先登录</p>
+                                <div style="display: flex;align-items:center;height:38px;line-height: 38px;">
+                                    <p class="hideLoginMask" style="color:#787878;width:50%;border-right:1px solid #dcdcdc;height:100%;text-align: center;">取消</p>
+                                     <a href="${url}" style="color:#8cc041;height:100%;text-align: center;flex:1 0 auto;">确定</a>
+                                </div>
+                            </div>
+                        </div>`;
+            $('body').append(html).find('.loginMask').fadeIn(300).find('.loginMaskContent').addClass('c3-animate').css('top','50%');
+        }else if(mask.length==1){
+            mask.fadeIn(300);
+            $('.loginMaskContent').css('top','50%');
+        }
+    }
+    function hideLoginMask(){
+        $('.loginMask').fadeOut(300).find('.loginMaskContent').css('top','60%');
+    }
+    $('body').on('click','.showLoginMask',function(e){
+        e.preventDefault();
+        showLoginMask();
+    }).on('click touchmove','.hideLoginMask',function(e){
+        e.preventDefault();
+        hideLoginMask();
+    });
+
+    function alertMask(mask){
+         mask=mask || ".alertMask";
+
+
+    }
+</script>
+</body>
+</html>

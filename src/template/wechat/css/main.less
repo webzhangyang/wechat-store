@@ -1,0 +1,1606 @@
+@charset "utf-8";//规定字符编码
+@import "../less/var";//变量
+@import "../less/flex";//弹性布局
+@import "../less/media-mobile";//不同屏幕宽适配
+@import "../less/common";//通用
+//@import "../less/icon-base64";//图标
+
+/*一下为微信商城独有的咯*/
+body{
+  .scrolling;//滚动回弹
+  .h();
+  -webkit-touch-callout: none;/*苹果的禁用长按事件*/
+  -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+  -moz-user-select: none;
+}
+
+input{
+  border-radius:0;
+  /*苹果手机input去圆角*/
+  -webkit-appearance : none ;
+}
+.mobile-container{
+  height:100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling:touch;
+}
+/*首页*/
+//nav导航条
+@def-h:2.2rem;
+.nav{
+  .h(@def-h);
+  .posi;//相对定位
+  .bg-co(#f5f5f5);
+  .flex;
+  .flex-j(space-between);
+  .flex-a();
+  border-bottom:1px solid #e0e0e0;
+  .nav-l{
+    .posi();//相对定位
+    .z-index(50);
+    .h();
+    .p(0 0.7rem);
+    .flex;
+    .flex-a();
+    .icon-base{
+      .w-h(0.7rem);
+    }
+    .big-bulk{
+      .v-a;
+    }
+  }
+  .nav-r{
+    .posi();//相对定位
+    .z-index(50);
+    .f-s(0.6rem);
+    .co(#292929);
+    .h();
+    .p(0 0.7rem);
+    .flex();
+    .flex-a();
+  }
+  .nav-m{
+    //这样就不会因为左右两边内容的不同而文字发生位移
+    .posi(@ab);//绝对定位
+    .posi-detail();//撑满
+    .z-index();//默认底层
+    .text-center;
+    .title;
+    .line-h(@def-h);
+    .co(#1b1b1b);
+  }
+  &.sticky{
+    .posi(sticky);
+    .w();
+    left:0;
+    top:0;
+    z-index:50;
+  }
+  &.fixed{
+    .fixed;
+    .w();
+    left:0;
+    top:0;
+    z-index:50;
+  }
+
+}
+//店家头像信息
+.merchant{
+  .flex;
+  .h(3rem);
+  .flex-a();
+  .bg-co();
+  .mer-img{
+    .w-h(2rem);
+    .overXY();
+    .m(0 0.75rem 0 1.2rem);
+    .radio(50%);
+  ;
+    img{
+      .w();
+    }
+  }
+  .mer-title{
+    .f-s(0.7rem);
+    .co(@2a);
+  }
+}
+//轮播样式
+@carousel-smallLi:0.4rem;
+.carousel{
+  .posi();
+  .w();
+  .overXY();
+  min-height: 2rem;
+  .bor-top-bottom();
+  .bg-co();
+  .bigBanner{
+    .flex;
+    .m();
+    li{
+      .flex-wh;
+      a{
+        .dis();
+        .h();
+        .v-a();
+        .flex;
+        .flex-a();
+      }
+      img{
+        .w();
+      }
+    }
+  }
+  .smallList{
+    .posi(@ab);
+    .z-index(10);
+    bottom:0;
+    right:0.4rem;
+    .flex;
+    li{
+      .flex-wh;
+      .w(@carousel-smallLi);
+      .h(@carousel-smallLi);
+      .bg-co(#dedede);
+      .radio(50%);
+      .p(1.5*@carousel-smallLi @carousel-smallLi);
+      background-clip:content-box;
+      &.active{
+        .bg-co(@jd-red);
+      }
+    }
+  }
+}
+//搜索框
+.search-box{
+  .p(0.4rem 1.5rem);
+  .box;
+  .bg-co();
+  .flex;
+  .flex-a();
+  .s-b-box{
+    .bor-all();
+    .radio(0.35rem);
+    .place(@p:@ae);
+    .flex;
+    .h(1.5rem);
+    .overXY();
+    .f-item;
+    .flex-a();
+    i.icon-base{
+      .m(0 0.5rem);
+    }
+    input{
+      .style-none;
+      .f-item;
+      .h();
+      .f-s(0.6rem);
+    }
+  }
+  .s-b-search{
+    .m(0 0 0 0.5rem);
+    .co(@3f);
+    .f-s(0.7rem);
+  }
+}
+//推荐
+.recommend{
+  .rec-title{
+    .flex;
+    .flex-j;
+    .flex-a;
+    .h(1.7rem);
+    .bg-co();
+    .transverse-line{
+      .w(1.1rem);
+      .h(0.05rem);
+      .bg-co(#434343);
+    }
+    .rec-t-text{
+      .m(0 1.25rem);
+      .f-s(0.9rem);
+      .co(@de-red);
+      .bold();
+    }
+  }
+}
+////推荐详情
+.rec-detail{
+  .row-d-text{
+    .more-ellipsis;//多行文本溢出
+    .f-s(0.7rem);
+    .co(#1d1d1d);
+    .m(0.9rem 0 1.1rem 0);
+  }
+  .row-d-info{
+    .flex;
+    .m(0 0 0.2rem 0);
+    .info-l{
+      .flex;
+      .f-item;
+      .flex-a(baseline);
+    }
+    .info-r{
+      .flex;
+      .flex-j(flex-end);
+      .flex-a();
+    }
+    .now-price{
+      .co(@price);
+      .bold;
+      .f-s(0.65rem);
+      .span{
+        .f-s(0.8rem);
+      }
+    }
+    .old-price{
+      .m(0 0 0 0.25rem);
+      .co(@8a);
+      .f-s(0.45rem);
+      .text-deco;
+    }
+  }
+  .rec-d-row{
+
+    .row-detail{
+
+
+    }
+  }
+}
+
+//AutoRound
+.AutoRound{
+  .m(1.4rem auto);
+  .text-center;
+  .co(@93);
+  .f-s(0.55rem);
+  .ar-info{
+    .flex;
+    .flex-j();
+    .flex-a();
+    .info-line{
+      .w(2.5rem);
+      .h(0.05rem);
+      .bg-co(@93);
+    }
+    .info-text{
+      .p(0 0.5rem);
+    }
+  }
+  .ar{
+    .m(0.2rem 0 0 0);
+  }
+}
+
+//底部定位
+.bottom-container{
+  .posi(@fix);
+  bottom:0;
+  left:0;
+  .w();
+  .box;
+  .z-index(100);
+  &.static{
+    .posi(@sta);
+    transform:translateX(0);
+  }
+}
+.bottom-padding{
+  padding-bottom:2.5rem;
+}
+.bottom-nav{
+  .h(2.5rem);
+  .f-s(0.6rem);
+  .flex-full;//弹性一行多列布局
+  .bor-top();
+  .bg-co(@f6);
+  .item{
+    .text-c;
+    &.active{
+      .co(#1d1d1d);
+    }
+  }
+  .b-nav-m{
+    .m(0.225rem auto);
+  }
+}
+
+//左侧弹窗
+.classify-content{
+  left:0;
+  right:4rem;
+  top:0;
+  bottom:0;
+  .h();
+  .ovfHiden;
+  .bg-co();
+  .c3-tran;
+  .c3-translate();
+  .overY(auto);
+  &.move{
+    .c3-translate(0,0);
+  }
+  .classify-title{
+    .f-s(0.8rem);
+    .bold();
+    .co(#3a3a3a);
+    .m(0 0 0 0.5rem);
+  }
+  .c-content-title{
+    .m(1.75rem 0);
+    .line-h();
+    .flex;
+    .flex-j();
+    .flex-a();
+  }
+  .c-content-list{
+    .dis();
+    .bor-top(1px solid @dc);
+    .h(2rem);
+    .flex;
+    .flex-a();
+    .p(0 0 0 1.8rem);
+    .f-s(0.7rem);
+    .co(@3a);
+    &:last-child{
+      border-bottom: 1px solid @dc;
+    }
+    .c3-tran(all 0.3s ease-out);
+    &.active{
+      .bg-co(#d0d0d0);
+      .co(#CE3C40);
+     padding-left:1.55rem;
+    }
+  }
+}
+.classify-icon{
+  .posi(@ab);
+  right:2rem;
+  top:50%;
+  transform: translate(50%,-50%) rotate(180deg);
+  .z-index(2000);
+  .flex-center;
+}
+
+//排序选项
+.sort-option{
+  .flex-full;
+  .bg-co();
+  .text-center;
+  .h(2rem);
+  .flex-a();
+  .f-s(0.8rem);
+  .co(#3f3f3f);
+  &>div{
+    border-right:1px solid #dfdfdf;
+    .flex;
+    flex:1 1 auto;
+    .flex-a();
+    .flex-j();
+    .h();
+    &:last-child{
+      border-right: 0;
+    }
+    &.active{
+      .co(#ce2519);
+    }
+  }
+}
+
+//一行一行排列的商品
+.static-list{
+  .h(5.5rem);
+  .p(0 0.6rem);
+  .bg-co();
+  .flex;
+  .flex-a();
+  .m(0.4rem 0);
+  .list-img{
+    .w(5rem);
+    .m(0 0.7rem 0 0);
+    img{.w();}
+    .flex-original;
+  }
+}
+.list-text{
+  .f-item;
+  .text-detail{
+    .co(#404040);
+    .f-s(0.7rem);
+    .m(0 0 0.7rem 0);
+  }
+  .now-price{
+    .f-s(0.7rem);
+    .bold;
+  }
+  .l-small{
+    .f-s(0.45rem);
+    .gray;
+    .m(0.25rem 0 0 0.25rem);
+  }
+}
+
+/*商品详情页面*/
+//上层mask按钮
+.mask-btn{
+  .bg-co(rgba(0,0,0,.5));
+  .flex;
+  .flex-a;
+  .flex-j;
+  .w-h(1.3rem);
+  .radio(50%);
+  z-index: 600;
+  .icon-base{
+    .w-h(0.7rem);
+  }
+}
+.carousel{
+  .mask-btn{
+    .posi(@ab);
+    left:0.5rem;
+    top:0.5rem;
+  }
+}
+//竖直排列显示商品数据
+
+//底部按钮选项
+.bottom-btn{
+  .bg-co();
+  .f-s(0.7rem);
+  .h(2.9rem);
+  .flex-a();
+  .item{
+    .text-center;
+    .icon-base{
+      .m(0 auto 0.2rem auto);
+    }
+  }
+  .bottom-txt{
+    .co(#383838);
+  }
+  .add-car,.buy-now{
+    .co(#fffeff);
+    .h();
+    .flex;
+    .flex-a();
+    .flex-j();
+  }
+  .add-car{
+    .bg-co(#030303);
+  }
+  .buy-now{
+    .bg-co(#c9291d);
+  }
+}
+.show-content{
+  .posi(@ab);
+  .w-h(14px);
+  top:0;
+  right:0;
+  .c3-translate(50%,-20%);
+  .bg-co(#C9291D);
+  .radio(50%);
+  .co(#fff);
+  .f-s(0.5rem);
+  .flex-center;
+  .text-center;
+}
+.show-txt-number{
+  .co(red);
+  .bold;
+  .f-s(1.2rem);
+  .posi(@ab);
+  bottom:100%;
+  left:50%;
+  transform: translateX(-50%);
+  opacity:1;
+}
+
+//详情描述
+.product-describe{
+  padding:0.6rem 0.8rem;
+  .price{
+    .f-s();
+    .co(#c9291d);
+    .bold;
+  }
+  .market-price{
+    .f-s(0.55rem);
+    .co(#8b8a8a);
+    .text-deco;
+    .m(0.3rem 0 0 0.5rem);
+  }
+
+}
+.describe-title{
+  .f-s(0.7rem);
+  .co(#1d1d1d);
+  .m(0 0 0.25rem 0 )
+}
+.product-data{
+  .bg-co();
+  .a-height{
+    .flex;
+    .flex-a();
+    .f-s(0.6rem);
+    .co(#707070);
+    &:not(:last-child){
+      border-bottom:1px solid #cfcfcf;
+    }
+  }
+
+}
+.product-choice{
+  .a-line;
+  .flex-j(space-between);
+  .bg-co();
+  .m(0.25rem 0);
+}
+.product-switch{
+  .flex;
+  .flex-a();
+  .flex-j();
+  min-height: 3rem;
+}
+.detail-text{
+  .f-s(0.7rem);
+  .co(#383838);
+  .p(0.8rem);
+}
+.detail-img{
+  img{
+    .w();
+  }
+}
+
+//在下部遮罩层
+.specification{
+  left:0;
+  right:0;
+  bottom:-1rem;
+  .w();
+  .bg-co();
+  .p(0 0 3rem 0);
+  .c3-tran();
+  &.move{
+    bottom:0;
+  }
+  .intro-detail{
+    .flex;
+    .flex-a();
+    .p(0.7rem 0.8rem);
+    .posi();
+    .h(4.6rem);
+    .box;
+    border-bottom:1px solid #dadada;
+  }
+  .intro-scroll{
+    .h(14rem);
+    .overY();
+  }
+  .intro-img{
+    .bor-all(1px solid #dadada);
+    .m(-1.4rem 0.5rem 0 0);
+    img{
+      .h(5rem);
+    }
+  }
+  .intro-txt{
+    .f-s(0.6rem);
+    .co(#777);
+  }
+  .intro-close{
+    .posi(@ab);
+    top:0.2rem;
+    right:0.2rem;
+    .w-h(1.5rem);
+    .flex;
+    .flex-a();
+    .flex-j();
+  }
+  .price{
+    .co(#c9291d);
+    .f-s(0.9rem);
+    .m(0 0.5rem 0 0);
+    .bold;
+  }
+  .base-flex{
+    .m(0 0 0.4rem 0);
+  }
+  .intro-txt-p{
+    .m(0.1rem 0)
+  }
+}
+//-1+三个btn
+.flex-btn{
+  .btn{
+    .w(1.6rem);
+    .h(1.2rem);
+    .box;
+    .line-h(1.15rem);
+    .text-center;
+    .bg-co(#f6f6f6);
+    .bor-all(1px solid #eee);
+    .co(#c5c4c4);
+    &.active{
+      .bg-co(#efefef);
+      .bor-all(1px solid #b5b5b5);
+      .co(#3e3e3e);
+    }
+    &.minus{
+      border-top-left-radius: 0.15rem;
+      border-bottom-left-radius: 0.15rem;
+      border-right:0;
+    }
+    &.plus{
+      border-top-right-radius: 0.15rem;
+      border-bottom-right-radius: 0.15rem;
+      border-left:0;
+    }
+  }
+  .value{
+    .bor-all(1px solid #b5b5b5);
+    .w(2rem);
+    .h(1.2rem);
+    .bg-co();
+  }
+}
+//底部绝对定位
+.bottom-ab{
+  .posi(@ab);
+  left:0;
+  .w();
+  right:0;
+  bottom:0;
+}
+
+//购物车商品列表
+.cart-list{
+  .flex;
+  .bg-co();
+  .p(0.75rem 0);
+  .m(0 0 0.25rem 0);
+  .list-img{
+    .m(0 0.6rem 0 0);
+  }
+  .a-item{
+    .flex();
+    .flex-a();
+    label&{
+      .p(0 0.6rem);
+      .h();
+    }
+    img{
+      .w(4.5rem);
+    }
+  }
+  .item{
+    .w(calc(~'100% - 8rem'));
+    .more-ellipsis{
+      .f-s(0.6rem);
+      .co(#141414);
+      .m(0.5rem 0 0 0)
+    }
+    .one-ellipsis{
+      .f-s(0.5rem);
+      .co(#8d8d8d);
+      .m(0.25rem 0 0.5rem 0)
+    }
+    .a-line{
+      .p();
+    }
+    .flex-between{
+      .flex-a();
+    }
+    .price{
+      .f-s();
+      .co(#c9291d);
+    }
+  }
+}
+.checkbox-show{
+  .dis();
+  .w-h(0.5rem);
+  .bor-all(2px solid #D3D3D3);
+  .radio(50%);
+  .p(2px);
+  .m(0 0.6rem);
+  &.checked{
+    .bg-clip();
+    .bg-co(#c9291d);
+  }
+}
+.checkbox-btn{
+  .hide;
+  &:checked ~ .checkbox-show{
+    .bg-clip();
+    .bg-co(#c9291d);
+  }
+}
+.bottom-nav{
+  &.some-btn{
+    .f-s(0.7rem);
+    .co(#4d4d4d);
+    .h(2.75rem);
+    .flex-a();
+    .flex-between;
+    .gray-order-btn{
+      .bg-co(#ccc);
+      .w(5.7rem);
+      .text-center;
+      .h();
+      .line-h(2.75rem);
+      &.check{
+        .bg-co(#d83327);
+        .co(#fff);
+      }
+    }
+    .grow{
+      .f-item;
+      .flex-center;
+      .h();
+      max-width:40%;
+      .red{
+        .co(#c9291d);
+      }
+    }
+    .delete-btn{
+      .h(2rem);
+      .w(4.2rem);
+      .line-h(2rem);
+      .bor-all(1px solid #ccc);
+      .text-center;
+      .co(#ccc);
+      .m(0 0.75rem 0 0);
+      &.check{
+        .co(#d83327);
+        .bor-all(1px solid #d83327);
+      }
+    }
+  }
+}
+
+//我的订单页面
+.a-list{
+  .flex-full;
+  .f-s(0.65rem);
+  .co(#323232);
+  .flex-a();
+  .item{
+    &.active{
+      .co(#df3030);
+      border-bottom:2px solid #df3030;
+    }
+  }
+
+}
+.order-option{
+  &.a-list{
+    .item{.w(20%);}
+  }
+  .h(2rem);
+  .bg-co();
+  border-bottom:1px solid #e0e0e0;
+  .item{
+    .h();
+    .line-h(2rem);
+    .text-center;
+  }
+}
+
+//一个订单
+.a-order{
+  .p(0 0.8rem);
+  .bg-co();
+  .m(0.4rem 0);
+  .bor-top-bottom(1px solid #E5E5E5);
+  .f-s(0.6rem);
+  .gray-pay{
+    .co(#7d7d7d);
+  }
+  .first-line{
+    .flex-between;
+    .flex-a();
+    .p(0.5rem 0);
+    .a-gray-line;
+  }
+  .goods-detail{
+    .p(0.6rem 0);
+    .image-text;
+    .gray-line();
+  }
+  .third-line{
+    .flex-right;
+    .h(1.5rem);
+    &:not(:last-child){
+      .gray-line();
+    }
+    .co(#3c3c3c);
+  }
+  .fourth-line{
+    .a-line-btn;
+  }
+}
+
+//移动端模拟滚动
+.moveParent{
+  .ovfHiden;
+  //父级需要固定高度，子级可以自适应高度，但是注意外边距，浮动的影响。
+  .moveChild{
+    .clear;
+  }
+}
+
+//待付款页面
+.big-info{
+  .h(3rem);
+  .line-h(3rem);
+  .text-center;
+  .f-s(0.8rem);
+  .bold;
+  .co(#d32121);
+  .bg-co();
+}
+.contact-detail{
+  .flex;
+  .p(1rem);
+  .bg-co();
+  p{
+    .line-h(0.9rem);
+    .f-s(0.55rem);
+    .co(#5f5e5e);
+  }
+  .l-aside{
+    .w(3.5rem);
+    .text(right);
+    .flex-original;
+  }
+}
+.a-title{
+  .h(1.725rem);
+  .line-h(1.725rem);
+  .f-s(0.65rem);
+  .co(#141414);
+  .bg-co();
+  .p(0 1rem);
+  .bold;
+}
+.goods-list{
+  .normal-MB{
+    .bg-co();
+    &>.image-text{
+      .p(0.5rem 0);
+      .m(0 1rem);
+      .bg-co();
+      .gray-line(#e6e6e6);
+      .flex-between{
+        .m(0.25rem 0 0 0)
+      }
+      .price{
+        .co(#c9291d);
+        .f-s(0.7rem);
+      }
+      .count{
+        .co(#2f2f2f);
+      }
+      .more-ellipsis{
+        .m(0.25rem 0);
+      }
+    }
+  }
+  &>.image-text{
+    .p(0.5rem 1rem);
+  }
+  .a-row-btn{
+    .bg-co();
+    .m(0 1rem);
+  }
+}
+.goods-info{
+  .p(0.5rem 1rem);
+  .bg-co();
+  .normal-MB;
+  &>p{
+    .line-h();
+    .f-s(0.6rem);
+    .co(#525252);
+  }
+  &.order-info>p{
+    .f-s(0.5rem);
+    .co(#909090);
+  }
+  .black{
+    .co(#2f2f2f);
+    .f-s(0.6rem);
+    .bold;
+  }
+  .red{
+    .co(#d62727);
+    .f-s(0.7rem);
+    .bold;
+  }
+}
+.block-btn{
+  .dis();
+  .h(3rem);
+  .line-h(3rem);
+  .f-s(0.8rem);
+  .text();
+  &.red{
+    .co(#fff);
+    .bg-co(#d83327);
+  }
+  &.grayStop{
+    .co(#eee);
+    .bg-co(#ccc);
+  }
+}
+//删除订单弹窗窗口
+.alert{
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  .w(10.6rem);
+  .bg-co();
+  .overXY();
+  .radio(0.35rem);
+  .alert-txt{
+    .flex-center;
+    .f-s(0.65rem);
+    .co(#333);
+    .p(1rem);
+    .gray-line(#b5b5b5);
+    &.red{
+      .red;
+    }
+  }
+  .alert-btn{
+    .f-s(0.55rem);
+    .posi();
+    .flex;
+    .item{
+      .f-item;
+      .text();
+      .p(0.5rem 0);
+    }
+    &:after{
+      content: '';
+      .posi(@ab);
+      left:50%;
+      top:0;
+      bottom:0;
+      .w(0.05rem);
+      transform: translateX(-50%);
+      .bg-co(#b5b5b5);
+    }
+  }
+  .alert-sure{
+    .co(#f6383a);
+  }
+  .alert-cancel{
+    .co(#0894ec);
+  }
+}
+
+//订单状态显示
+.state-info{
+  .p(0.5rem 1rem);
+  .bg-co();
+  .flex-a();
+  .normal-MB;
+  .icon-base{
+    .w-h(0.7rem);
+  }
+  .s-i-txt>p{
+    .line-h(0.9rem);
+    .f-s(0.55rem);
+    .co(#828282);
+  }
+}
+
+//申请售后
+.a-normal-line{
+  .p(0 1rem);
+  .f-s(0.7rem);
+  .co(#323232);
+  .flex-between;
+  .h(2.2rem);
+  .flex-a();
+  .bg-co();
+  .normal-MB;
+  .icon-base{
+    .w-h(0.7rem);
+  }
+}
+.a-sale-item{
+  .bg-co();
+  .normal-MB;
+ .checkbox-show{
+   .w-h(5px);
+   .dis(inline-block);
+   .p(1px);
+   margin-left: 0;
+   margin-right: 0.5rem;
+ }
+  .item-title{
+    .a-normal-line;
+    .m();
+    .gray-line();
+  }
+  .item-detail{
+    .p(0.65rem 1rem);
+    .posi();
+    .a-item{
+      .h(1.2rem);
+      .line-h(1.2rem);
+      .f-s(0.6rem);
+    }
+    textarea.reset{
+      .dis();
+      .w();
+      .box;
+      .h(5.3rem);
+      .p(0.65rem);
+      border-color:#aaa;
+      &::-webkit-input-placeholder{
+        .co(#C2C2C2);
+      }
+    }
+    .size-info{
+      .posi(@ab);
+      bottom:1rem;
+      right:1.5rem;
+      .co(#9C9C9C);
+    }
+    &.permit-img{
+      .flex;
+      .flex-original;
+      .p(0.65rem 0.5rem);
+      .img-item{
+        .w(20%);
+        .h(calc(~'20vw - 0.2rem'));
+        .p(0.25rem);
+        .box;
+        .posi();
+        img{
+          .w();
+          .h();
+        }
+        .delete-img{
+          .posi(@ab);
+          left:0;
+          top:0;
+          .bg-co(rgba(223, 48, 48,.8));
+          .w-h(1rem);
+          .line-h(1rem);
+          .text-center;
+          .co(#fff);
+          .radio(50%);
+          .f-s(1rem);
+          z-index: 100;
+        }
+      }
+    }
+  }
+}
+.big-img-show{
+  .posi(@ab);
+  left:0;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+  .bg-co();
+  z-index: 2000;
+  img{
+    .w();
+    height:auto!important;
+    max-height:100vh!important;
+  }
+}
+.select-img{
+  .posi();
+  border: 1px dashed #aaa;
+  border-radius: 5px;
+  overflow: hidden;
+  &:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background-color: #999;
+    width: 2px;
+    height: 30px;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background-color: #999;
+    width: 30px;
+    height: 2px;
+  }
+}
+//提交按钮
+.static-part{
+  .clear;
+  .gray-btn{
+    .dis();
+    .m(2rem auto);
+    .w(12rem);
+    .h(2.2rem);
+    .text-center;
+    .line-h(2.2rem);
+    .f-s(0.7rem);
+    .co(#323232);
+    .bg-co(#C5C3C3);
+    .bold();
+    &.submit{
+      .w(7.8rem);
+      .h(2.2rem);
+      .co(#090909);
+    }
+    &.active{
+      .bg-co(#d83327);
+    .co(#fff);
+    }
+  }
+}
+//售后原因
+.after-reason{
+  .bg-co();
+  .posi(@ab);
+  bottom:0;
+  .w();
+  z-index:2000;
+  .f-s(0.7rem);
+  .some-close{
+    .posi(@ab);
+    .w-h(1rem);
+    .line-h();
+    .text();
+    right:1rem;
+    top:0.6rem;
+    .f-s(1rem);
+  }
+  .a-r-title{
+    .p(0.6rem);
+    .f-s(0.8rem);
+    .text();
+  }
+  .label-flex{
+    .flex-between;
+    border-top:1px solid #e5e5e5;
+    .h(2rem);
+    .flex-a();
+    .p(0 0.4rem 0 1rem);
+  }
+}
+
+//售后
+.a-order.after-sale{
+  .fourth-line{
+    .flex-between;
+    .flex-a();
+  }
+}
+.content-display{
+  .bg-co();
+  .p(1.5rem 0);
+  .text();
+  .content-title{
+    .co(#c02424);
+    .f-s(0.7rem);
+    .bold;
+    &:not(:last-child){
+      .m(0 0 0.5rem 0);
+    }
+  }
+  .detail-info{
+    .f-s(0.5rem);
+    .co(#555);
+    .line-h(0.8rem);
+  }
+}
+.content-txt{
+  .p(1rem);
+  .bg-co();
+  .danger{
+    .f-s(0.5rem);
+    .co(#d42525);
+    .line-h(0.8rem);
+    .m(0 0 1.25rem 0);
+  }
+  .nor-txt{
+    .f-s(0.55rem);
+    .co(#565656);
+    .line-h(0.8rem);
+  }
+  .txt-title{
+    .bold;
+    .f-s(0.7rem);
+    .co(#1c1b1b);
+    .m(0 0 0.7rem 0);
+  }
+  .txt-detail{
+    .f-s(0.55rem);
+    .co(#949494);
+    .line-h(0.9rem);
+  }
+  .gray-txt{
+    .f-s(0.5rem);
+    .co(#464646);
+    .line-h(1.25rem);
+    .flex-allow{
+      .w(calc(~'100% - 3rem'))
+    }
+  }
+}
+.img-show{
+  .flex;
+  .img-item{
+    .f-item;
+    .w(2.5rem);
+    .m(0 0.5rem 0 0);
+    img{
+      .w();
+    }
+  }
+}
+.reject-red{
+  .co(#D73F58);
+}
+.service-tel{
+  .p(3rem 1rem);
+  .text();
+  .line-h(1rem);
+  .f-s(0.8rem);
+  .co(#4a4a4a);
+}
+
+//添加地址
+.addr-show{
+  .flex-between;
+  .flex-a();
+  .p(1rem);
+  .bg-co();
+  .line-h(1rem);
+  .co(#616161);
+  .f-s(0.65rem);
+  .posi();
+  z-index:10;
+}
+.check-part{
+  .co(#B1B1B1);
+  .p(0.6rem 0 0 0);
+  .flex{
+    .flex-a();
+  }
+  .checkbox-show{
+    .w-h(0.3rem);
+    .m(0 0.5rem 0 0);
+  }
+}
+.inside-container{
+  .p(0.5rem 1rem);
+}
+.text-input{
+  .flex;
+  .flex-a;
+  .co(#1A2930);
+  min-height: 1.8rem;
+  .p(0.2rem 0);
+  .flex-a();
+  .f-s(0.7rem);
+  &:not(:last-child){
+    .gray-line();
+  }
+  input,textarea{
+    .f-item;
+   .style-none;
+    .h(1.5rem);
+  }
+  textarea{
+    .h(1.9rem);
+    .p(0.5rem 0.5rem 0 0.5rem);
+    .box;
+    .f-s(0.7rem);
+    .flex;
+    .flex-a();
+    .flex-j();
+    .line-h(1rem);
+    &::-webkit-input-placeholder{
+      .co(#B9B9B9);
+    }
+    .flex;
+    .flex-a();
+    &:focus{
+      &::-webkit-input-placeholder{
+        .co(#fff);
+      }
+
+    }
+  }
+  .i-rArrows{
+    .w-h(0.7rem);
+  }
+  .select-address{
+    .i-rArrows{
+      margin-left: 0.25rem;
+    }
+  }
+}
+
+.loading{
+  .w-h(3rem);
+  .bg-co(rgba(0,0,0,.6));
+  .radio(0.3rem);
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  .flex;
+  .flex-center;
+  img{
+    .w-h(70%);
+  }
+}
+
+//我的中心
+.some-my-line{
+  .h(2rem);
+  .m(0.25rem 0);
+  .bg-co();
+  .p(0 1rem);
+  .flex-between;
+  .flex-a();
+  .bor-top-bottom(1px solid #e5e5e5);
+  .co(#1d1d1d);
+  .f-s(0.7rem);
+  .icon-base{
+    .w-h(0.7rem);
+  }
+  .item-name{
+    margin-left:0.5rem;
+  }
+}
+.my-center{
+  .h(5.25rem);
+  .mer-img{
+    .w-h(3.25rem);
+  }
+  .mer-title{
+    .f-s();
+    .co(#1d1d1d);
+  }
+}
+
+//抢购
+.panic-buying{
+  .bg-co(#ff4645);
+  .co(#fff);
+  .p(0.5rem 0.6rem);
+  .f-s(0.6rem);
+  .posi();
+  .overXY(visible);
+  .flex-between;
+  .flex-a();
+  .txt-info{
+    .posi(@ab);
+    top:0;
+    left:0;
+    transform: translateY(-100%);
+    border-top-right-radius: 0.25rem;
+    .h(1rem);
+    z-index:100;
+    .bg-co(#ff4645);
+    .p(0 0.5rem);
+    .line-h();
+  }
+  .salient{
+    .f-s(1.2rem);
+    .bold;
+  }
+  .text-deco{
+    .f-s(0.55rem);
+  }
+  .for-trim{
+    .h(1.5rem);
+    .flex;
+    .flex-a();
+    vertical-align: text-bottom;
+  }
+  .time{
+    .p(0.05rem);
+    .m(0 0.05rem);
+    .bg-co();
+    .co(#ff4645);
+    .radio(0.15rem);
+  }
+}
+.text-rush{
+  .bg-co();
+  .f-s(0.5rem);
+  .rush-title{
+    .f-s();
+    .co(#000);
+  }
+  .freight{
+    margin-right:0.5rem;
+  }
+}
+@green:#8abf31;
+.purchase-limitation{
+  .co(@green);
+  .bor-all(1px solid @green);
+  .p(0.05rem 0.25rem);
+  .radio(0.2rem);
+}
+.rush-purchase{
+  .flex-full;
+  .item{
+    .h();
+    .flex;
+    .flex-j();
+    flex-direction:column;
+  }
+  .begin-start{
+    .w(50%);
+    .co(#373737);
+    .bg-co(#bcbcbc);
+    .f-s();
+  }
+}
+//loading
+.loading-mask{
+  .mask;
+}
+//文字弹窗
+.alert-mask{
+  .mask;
+}
+
+//支付订单页面
+.some-padding{
+  .p(0.8rem 1rem);
+  .bg-co();
+  margin-bottom:0.6rem;
+  .red{
+    .co(#ef1d1d);
+  }
+  .big{
+    .f-s(1.1rem);
+  }
+  .black{
+    .co(#06161e);
+  }
+}
+.pay-info{
+  .some-padding;
+  .f-s(0.6rem);
+  .co(#444);
+  .line-h();
+}
+.pay-money{
+  .some-padding;
+  .f-s(0.7rem);
+  .co(#1c1c1c);
+}
+.pay-way{
+  .some-padding;
+  .p(0 1.25rem);
+  .line-h(2.25rem);
+  .black{
+    .bold;
+    .f-s(0.7rem);
+  }
+  label.flex{
+    border-top: 1px solid #e5e5e5;
+    .item{
+      .m(0 0.5rem);
+      .co(#06161e);
+    }
+  }
+}
+.pay-sure{
+  .m(4.5rem auto);
+}
+.pay-sure-btn{
+  .m(0 auto);
+  .dis();
+  .w(12rem);
+  .h(2rem);
+  .line-h(2rem);
+  .text();
+  .f-s(0.9rem);
+}
+.red-btn{
+  .co(#fff);
+  .bg-co(#E32525);
+}
+//icon
+.small{
+  .w-h(0.7rem);
+  background-size: 0.7rem 0.7rem ;
+}
+.icon-choice{
+  .dis(@in-blo);
+  .w-h(0.7rem);
+  .bor-all();
+  .radio(50%);
+}
+.icon-base{
+  .w-h();
+  &.small{
+    .w-h(0.7rem);
+    background-size: 0.7rem 0.7rem ;
+  }
+  i&{
+    .dis(@in-blo);
+    &.hide{
+      .dis(none);
+    }
+  }
+  background-size: 1rem 1rem ;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.red-check{
+  //&:checked ~ i.icon-choice{
+  //  .icon-base;
+  //}
+}
+.price {
+  color: #c9291d;
+  font-size: .7rem;
+}
+.l-small {
+  font-size: .45rem;
+  color: #8b8a8a;
+}
+
+.addr-parent{
+  .gray-line();
+  .posi();
+}
+.hide-option{
+  .posi(@ab);
+  height:100%;
+  right:0;
+  top:0;
+  z-index:0;
+  .flex;
+  .item{
+    flex:0 1 auto;
+    width:3rem;
+    .f-s(0.7rem);
+    .flex-center;
+  }
+  .item-delete{
+    .bg-co(#DE443C);
+    .co(#fff);
+  }
+}
+.item-move-elm{
+  .posi();
+  .item-move-part{
+    .c3-tran(all .3s ease-out);
+    .posi();
+    z-index:10;
+    &.move{
+      transform: translateX(-3rem);
+    }
+  }
+}
+
+.pageItem{
+  .hide;
+  &.active{
+    .dis(block);
+  }
+}

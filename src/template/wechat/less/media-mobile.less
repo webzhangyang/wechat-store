@@ -1,0 +1,64 @@
+@import "common";//通用
+
+
+@media screen and(min-width: 764px ){
+  .aside-classify{
+    .classify-content{
+      width:50%;
+    }
+    .classify-icon{
+      right: 50%;
+      transform: translate(200%,-50%) rotate(180deg);
+    }
+  }
+
+}
+@media screen and(max-width: 374px){
+  .mobile-container{
+    .panic-buying{
+      .big-size{
+        .f-s(0.5rem);
+      }
+      .salient{
+        .f-s(0.9rem);
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 770px ){
+  body{
+    .bg-co();
+    .mask{
+      left:50%;
+      .limit-width;
+      transform: translate(-50%,0);
+    }
+    .bottom-container{
+      left:50%;
+      transform: translateX(-50%);
+      .w();
+      .wid-limit;
+    }
+    .nav.fixed{
+      left:50%;
+      transform: translateX(-50%);
+      .wid-limit;
+    }
+    .mobile-container{
+      .wid-limit;
+      .bor-top-bottom();
+      box-shadow:0 0 2rem  0.25rem rgba(0,0,0,.5);
+      &.fixed{
+        left:50%;
+        top:0;
+        transform: translateX(-50%);
+      }
+
+      .a-sale-item .item-detail.permit-img .img-item {
+        height: 145px;
+      }
+    }
+
+  }
+}
